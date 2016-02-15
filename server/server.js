@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
+var User = require('users/UserModel.js');
+
 
 mongoose.connect('mongodb://localhost/fitness');
 
