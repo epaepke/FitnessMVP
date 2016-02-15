@@ -18,6 +18,10 @@ angular.module('fitness', ['fitness.auth',
       templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
     })
+    .when('/stats', {
+      templateUrl: 'app/stats/stats.html',
+      controller: 'StatsController'
+    })
     .otherwise({
       redirectTo: 'http://www.google.com'
     });
