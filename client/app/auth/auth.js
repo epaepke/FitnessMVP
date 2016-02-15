@@ -1,6 +1,6 @@
 angular.module('fitness.auth', [])
 
-.controller('AuthController', function ($scope, $window, $location) {
+.controller('AuthController', function ($scope, $window, $location, $http) {
   $scope.user = {};
 
   // $scope.signin = function () {
@@ -14,15 +14,15 @@ angular.module('fitness.auth', [])
   //     });
   // };
 
-  $scope.signup = function () {
+  $scope.signup = function ($location) {
     console.log('this be tha user', $scope.user)
-    // Auth.signup($scope.user)
-    //   .then(function (token) {
-    //     $window.localStorage.setItem('com.shortly', token);
-    //     $location.path('/links');
-    //   })
-    //   .catch(function (error) {
-    //     console.error(error);
-    //   });
+    $http({
+      method: 'POST',
+      url: '/api/users/signup',
+      data: $scope.user
+    }).then(function(response) {
+      console.log('huh')
+      $location.path('/stats');
+    });
   };
 });
