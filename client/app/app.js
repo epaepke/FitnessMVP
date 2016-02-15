@@ -11,7 +11,7 @@ angular.module('fitness', ['fitness.auth',
       controller: 'AuthController'
     })
     .when('/signin', {
-      templateUrl: 'app/auth/signup.html',
+      templateUrl: 'app/auth/signin.html',
       controller: 'AuthController'
     })
     .when('/signup', {
@@ -23,7 +23,7 @@ angular.module('fitness', ['fitness.auth',
       controller: 'StatsController'
     })
     .otherwise({
-      redirectTo: 'http://www.google.com'
+      redirectTo: '/signin'
     });
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
