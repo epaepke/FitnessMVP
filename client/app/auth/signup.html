@@ -3,10 +3,12 @@
     <h2>Start your journey</h2>
     <h1>Signup</h1>
     <form name="signupForm" ng-submit='signup()'>
-      <input type='text' ng-model='user.username'>
-      <input type="password" ng-model='user.password'>
-      <button>submit</button>
+      Name:<input type="name" ng-model='user.name'>
+      Username:<input type='text' ng-model='user.username'>
+      Password:<input type="password" ng-model='user.password'>
+      <input type="submit" class="styled-button-8" value="Submit" />
     </form>
+    <div class='spacer'></div>
     <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
   </div>
 </div>
