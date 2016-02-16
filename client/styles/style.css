@@ -222,4 +222,20 @@ input[type=url]:focus {
 
 .spacer {
   height: 20px;
-}  
+}
+
+#progessBarOuter {
+  background-color: #236B8E;
+  border: solid 1px black;
+  width: 50%;
+  margin: auto;
+  height: 50px;
+}
+
+#progressBar {
+  width: 100%;
+  height: 100%;
+  border-right: solid 1px black;
+    display: inline-block;
+  vertical-align: middle;
+}
