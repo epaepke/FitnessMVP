@@ -14,15 +14,13 @@ angular.module('fitness.auth', [])
   //     });
   // };
 
-  $scope.signup = function ($location) {
+  $scope.signup = function () {
     console.log('this be tha user', $scope.user)
     $http({
       method: 'POST',
       url: '/api/users/signup',
       data: $scope.user
-    }).then(function(response) {
-      console.log('huh')
-      $location.path('/stats');
-    });
+    })
+    $location.path('/stats');
   };
 });
