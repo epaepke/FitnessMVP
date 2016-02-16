@@ -32,15 +32,9 @@ app.post('/api/users/update', function(req, res, next) {
   activity = req.body[0];
   quantity = req.body[1];
 
-  console.log('act ', activity);
-  console.log('quant', quantity);
-  db.updateTable(req.body);
-  // db.createUser({name: name, uname: uname, pword:pword})
-  //   .then(function(newUser) {
-  //     req.session.regenerate(function() {
-  //       req.session.id = newUser._id;
-  //     });
-  //   });
+  db.updateTable(req.body, function(a) {
+    console.log('a:', a);
+  });
 });
 
 
