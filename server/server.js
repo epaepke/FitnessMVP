@@ -14,6 +14,13 @@ app.use(session({
   saveUninitialized: true
 }));
 
+app.get('/api/users/obtain', function(req, res, next) {
+
+  return db.findUser(req.body, function(a) {
+    res.send(a);
+  });
+});
+
 
 app.post('/api/users/signup', function(req, res, next) {
   name = req.body.name;
@@ -31,10 +38,7 @@ app.post('/api/users/signup', function(req, res, next) {
 app.post('/api/users/update', function(req, res, next) {
   activity = req.body[0];
   quantity = req.body[1];
-
-  db.updateTable(req.body, function(a) {
-    console.log('a:', a);
-  });
+  db.updateTable(req.body).then(res.send());
 });
 
 

@@ -2,7 +2,7 @@ angular.module('fitness.stats', [])
 
 .controller('StatsController', function ($scope, $window, $location, $http) {
   $scope.user = {};
-  $scope.total = 200;
+  $scope.total = 0;
   $scope.activities = [{act:'Jogging', quant:'Mins'}, {act:'Walking', quant:'Mins'},  {act:'Pushups', quant:'Quantity'},  {act:'Situps', quant:'Quantity'},  {act:'Squats', quant:'Quantity'}];
   $scope.quantity = {};
 
@@ -13,17 +13,24 @@ angular.module('fitness.stats', [])
       method: 'POST',
       url: '/api/users/update',
       data: actData
-    }).then($scope.getInfo());
-  }
+    }).then(function (a) {
+      $scope.getInfo();
+    });
+  };
 
-  $scope.getInfo = function(actData) {
+  $scope.getInfo = function() {
     console.log('bout to get some data');
     $http({
       method: 'GET',
       url: '/api/users/obtain',
       contentType: 'application/json'
-    }).then(function(a) {
-      console.log(a);
+    }).then(function(user) {
+      user = user.data
+      $scope.quantity['Jogging'] = parseInt(user['jogging']);
+      $scope.quantity['Walking'] = parseInt(user['walking']);
+      $scope.quantity['Situps'] = parseInt(user['situps']);
+      $scope.total = parseInt(user['jogging']) + parseInt(user['walking']) + parseInt(user['situps']);
+      $scope.barUpdate();
     });
   };
 
@@ -35,12 +42,11 @@ angular.module('fitness.stats', [])
     .style('color', 'white')
     .style('text-align', 'right')
     .style('vertical-align', 'text-bottom')
-    .style('width', '0')
     .style('background-color', 'green')
     .transition()
-    .duration(2000)
+    .duration(1500)
     .style('width', width)
   }
-
+  $scope.getInfo();
   $scope.barUpdate();
 });
