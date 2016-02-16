@@ -1,11 +1,12 @@
 <div id='stats'>
   <div class="statsContainer"> 
-    <h1>Welcome Back, Erick</h1>
+    <h3>Welcome Back, Erick</h3>
     <div id="progessBarOuter"> 
       <div id="progressBar" style='width:0%'></div>
     </div>
     <div class="spacer"></div>
-    <span class="centeredText"> Only x more calories to burn to meet your daily goal! </span>
+    <div class="centeredText" ng-show="!showCheck()"> Only {{ 2900 - total }} more calories to burn to meet your daily goal! </div>
+    <div class="centeredText" ng-show="showCheck()"> Congrats on meeting your goal! </div>
     <div class="spacer"></div>
   </div>
   <div class="activity" ng-repeat='act in activities'>
