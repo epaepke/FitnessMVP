@@ -15,8 +15,10 @@ app.use(session({
 }));
 
 app.get('/api/users/obtain', function(req, res, next) {
-  console.log('req ', req);
-  return db.findUser(req.body, function(a) {
+  var query = req.query
+  console.log(req.query);
+  var name = JSON.parse(query.query).name;
+  return db.findUser(name, function(a) {
     res.send(a);
   });
 });
@@ -40,6 +42,8 @@ app.post('/api/users/signup', function(req, res, next) {
 app.post('/api/users/update', function(req, res, next) {
   activity = req.body[0];
   quantity = req.body[1];
+  username = req.body[2].name;
+  // console.log('act', username)
   db.updateTable(req.body).then(res.send());
 });
 

@@ -17,7 +17,7 @@
   <img src="../assets/{{act.img}}.png" class="actImg" >
     <div class="name"> {{ act.act }} </div>
     <div class="inputContainer">
-      <form ng-submit="update([act.act, quantity[act.act], user.name])">
+      <form ng-submit="update([act.act, quantity[act.act], user])">
         <label>{{ act.quant }}:</label> <input class="log" name="hours" ng-model="quantity[act.act]">
       </form>
     </div>

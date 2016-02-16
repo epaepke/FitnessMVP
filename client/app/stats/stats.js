@@ -19,6 +19,9 @@ angular.module('fitness.stats', ['fitness.auth'])
   };
 
   $scope.update = function(actData) {
+    console.log('a');
+    // var allData = {act: actData, user: $scope.user}
+    console.log('datas..........', JSON.stringify(actData));
     $http({
       method: 'POST',
       url: '/api/users/update',
@@ -32,9 +35,10 @@ angular.module('fitness.stats', ['fitness.auth'])
     $http({
       method: 'GET',
       url: '/api/users/obtain',
-      data: {query: 'erick'},
+      params: {query: $scope.user},
       contentType: 'application/json'
     }).then(function(user) {
+      console.log('user datas..........', user)
       user = user.data
       $scope.quantity['Jogging'] = parseInt(user['jogging']);
       $scope.quantity['Walking'] = parseInt(user['walking']);
