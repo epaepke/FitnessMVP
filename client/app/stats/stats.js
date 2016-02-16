@@ -1,14 +1,14 @@
-angular.module('fitness.stats', [])
+angular.module('fitness.stats', ['fitness.auth'])
 
 .controller('StatsController', function ($scope, $window, $location, $http) {
-  $scope.user = {};
+  $scope.Math=Math;
   $scope.total = 0;
-  $scope.activities = [{act:'Jogging', quant:'Mins'}, {act:'Walking', quant:'Mins'},  {act:'Pushups', quant:'Quantity'},  {act:'Situps', quant:'Quantity'},  {act:'Squats', quant:'Quantity'}];
+  $scope.activities = [{act:'Jogging', quant:'Mins', burn:30}, {act:'Walking', quant:'Mins', burn:8},  {act:'Pushups', quant:'Quantity', burn:5},  {act:'Situps', quant:'Quantity', burn:5},  {act:'Squats', quant:'Quantity', burn:5}];
   $scope.quantity = {};
   $scope.setCheck = false;
 
  $scope.showCheck = function(actData) {
-    var show = $scope.total > 2840;
+    var show = $scope.total >= 1320;
 
     if (show && !$scope.setCheck) {
       $scope.setCheck = true;
@@ -40,17 +40,15 @@ angular.module('fitness.stats', [])
       $scope.quantity['Situps'] = parseInt(user['situps']);
       $scope.quantity['Pushups'] = parseInt(user['pushups']);
       $scope.quantity['Squats'] = parseInt(user['squats']);
-      $scope.total = parseInt(user['jogging'])*10 + parseInt(user['walking'])*3 + parseInt(user['situps'])*4 + parseInt(user['squats'])*4 + parseInt(user['pushups'])*4;
-      $scope.barUpdate(Math.min($scope.total/4, 633));
+      $scope.total = parseInt(user['jogging']) * 30 + parseInt(user['walking']) * 8 + parseInt(user['situps']) * 5 + parseInt(user['squats']) * 5 + parseInt(user['pushups']) * 5;
+      $scope.barUpdate(Math.min($scope.total / 2, 640));
     });
   };
 
 
   $scope.barUpdate = function(width) {
-    // console.log('tottt', $scope.total);
     selection = d3.select("body").selectAll("#progressBar").data([$scope.total]);
     selection.style('color', 'white')
-    // .text(function(d) { return d; })
     .style('text-align', 'right')
     .style('vertical-align', 'text-bottom')
     .style('background-color', 'green')

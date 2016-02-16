@@ -1,6 +1,6 @@
 angular.module('fitness.auth', [])
 
-.controller('AuthController', function ($scope, $window, $location, $http) {
+.controller('AuthController', function ($scope, $window, $location, $http, $rootScope) {
   $scope.user = {};
 
   // $scope.signin = function () {
@@ -23,4 +23,4 @@ angular.module('fitness.auth', [])
     })
     $location.path('/stats');
   };
-});
+})

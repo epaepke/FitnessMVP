@@ -1,19 +1,22 @@
 <div id='stats'>
   <div class="statsContainer"> 
-    <h3>Welcome Back, Erick</h3>
+    <h3>Welcome Back, Erick </h3>
     <div id="progessBarOuter"> 
       <div id="progressBar" style='width:0%'></div>
     </div>
     <div class="spacer"></div>
-    <div class="centeredText" ng-show="!showCheck()"> Only {{ 2900 - total }} more calories to burn to meet your daily goal! </div>
+    <div class="centeredText" ng-show="!showCheck()"> Only {{ 1320 - total }} more calories to burn to meet your daily goal! </div>
     <div class="centeredText" ng-show="showCheck()"> Congrats on meeting your goal! </div>
     <div class="spacer"></div>
   </div>
+  <div class="activityGreet"> Activities: </div>
+  <div class="spacer"></div>
   <div class="activity" ng-repeat='act in activities'>
     <div class="name"> {{ act.act }} </div>
     <form ng-submit="update([act.act, quantity[act.act]])">
       {{ act.quant }}: <input class="log" name="hours" ng-model="quantity[act.act]">
-      <input type="submit" id="exSubmit">
     </form>
+    <input type="submit" id="exSubmit">
+    <div class="goal" ng-show="!showCheck()"> {{ Math.floor((1320 -  total) / act.burn) }} more to meet goal! </div>
   </div>
 </div>
