@@ -1,7 +1,9 @@
 console.log('loaded app');
 
-angular.module('fitness', ['fitness.auth', 'fitness.stats',
-  'ngRoute'
+angular.module('fitness', ['fitness.auth', 
+  'fitness.stats',
+  'ngRoute',
+  'ngCookies'
 ])
 .config(function ($routeProvider, $httpProvider) {
   console.log('should route from here');

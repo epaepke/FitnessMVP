@@ -4,7 +4,8 @@ var User = require('../users/UserModel.js');
 var User = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   username: {
     type: String,

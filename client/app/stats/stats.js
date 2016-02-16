@@ -1,13 +1,16 @@
-angular.module('fitness.stats', ['fitness.auth'])
+angular.module('fitness.stats', ['fitness.auth', 'ngCookies'])
 
-.controller('StatsController', function ($scope, $window, $location, $http, $rootScope) {
+.controller('StatsController', function ($scope, $window, $location, $http, $rootScope, $cookies) {
   $scope.Math=Math;
   $scope.total = 0;
   $scope.activities = [{act:'Jogging', quant:'Mins', burn:30, img:"run", color:'white'}, {act:'Walking', quant:'Mins', burn:8, img:"walk", color:'white'},  {act:'Pushups', quant:'Quantity', burn:5, img:"gym", color:'white'},  {act:'Situps', quant:'Quantity', burn:5, img:"gym", color:'white'},  {act:'Squats', quant:'Quantity', burn:6, img: "gym", color:'white'}];
   $scope.quantity = {};
   $scope.setCheck = false;
-  $scope.user = $rootScope.user;
-  console.log('scope user', $scope.user)
+  // $scope.user = $rootScope.user;
+  $scope.user = $cookies.getObject('user');
+
+  // $scope.user = $cookies.get('user').data;
+  // console.log('scope user', $scope.user)
 
  $scope.showCheck = function(actData) {
     var show = $scope.total >= 1320;
@@ -19,9 +22,6 @@ angular.module('fitness.stats', ['fitness.auth'])
   };
 
   $scope.update = function(actData) {
-    console.log('a');
-    // var allData = {act: actData, user: $scope.user}
-    console.log('datas..........', JSON.stringify(actData));
     $http({
       method: 'POST',
       url: '/api/users/update',
@@ -38,7 +38,6 @@ angular.module('fitness.stats', ['fitness.auth'])
       params: {query: $scope.user},
       contentType: 'application/json'
     }).then(function(user) {
-      console.log('user datas..........', user)
       user = user.data
       $scope.quantity['Jogging'] = parseInt(user['jogging']);
       $scope.quantity['Walking'] = parseInt(user['walking']);
