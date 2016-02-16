@@ -232,10 +232,16 @@ input[type=url]:focus {
   margin-right: 1%;
   border: solid 1px black;
   width: 17%;
-  height: 120px;
+  height: 260px;
+  border-radius: 40px;
 }
 
 .goal {
+  text-align: center;
+}
+
+.name {
+  margin-top: 5px;
   text-align: center;
 }
 
@@ -279,6 +285,23 @@ input[type=url]:focus {
 .activityGreet {
   font-size: 30pt;
   text-indent: 20px;
+}
+
+.spacerLarge {
+  height: 33px;
+}
+
+.currentProgress {
+  font-size: 20pt;
+  text-align: center;
+}
+
+.actImg {
+  position: relative;
+  margin: auto;
+  top: 5px;
+  left: 43px;
+  right: 0;
 }
 
 h3 {

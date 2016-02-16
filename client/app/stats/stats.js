@@ -3,7 +3,7 @@ angular.module('fitness.stats', ['fitness.auth'])
 .controller('StatsController', function ($scope, $window, $location, $http) {
   $scope.Math=Math;
   $scope.total = 0;
-  $scope.activities = [{act:'Jogging', quant:'Mins', burn:30}, {act:'Walking', quant:'Mins', burn:8},  {act:'Pushups', quant:'Quantity', burn:5},  {act:'Situps', quant:'Quantity', burn:5},  {act:'Squats', quant:'Quantity', burn:5}];
+  $scope.activities = [{act:'Jogging', quant:'Mins', burn:30, img:"run"}, {act:'Walking', quant:'Mins', burn:8, img:"walk"},  {act:'Pushups', quant:'Quantity', burn:5, img:"gym"},  {act:'Situps', quant:'Quantity', burn:5, img:"gym"},  {act:'Squats', quant:'Quantity', burn:6, img: "gym"}];
   $scope.quantity = {};
   $scope.setCheck = false;
 
@@ -40,7 +40,7 @@ angular.module('fitness.stats', ['fitness.auth'])
       $scope.quantity['Situps'] = parseInt(user['situps']);
       $scope.quantity['Pushups'] = parseInt(user['pushups']);
       $scope.quantity['Squats'] = parseInt(user['squats']);
-      $scope.total = parseInt(user['jogging']) * 30 + parseInt(user['walking']) * 8 + parseInt(user['situps']) * 5 + parseInt(user['squats']) * 5 + parseInt(user['pushups']) * 5;
+      $scope.total = parseInt(user['jogging']) * 30 + parseInt(user['walking']) * 8 + parseInt(user['situps']) * 5 + parseInt(user['squats']) * 5 + parseInt(user['pushups']) * 6;
       $scope.barUpdate(Math.min($scope.total / 2, 640));
     });
   };

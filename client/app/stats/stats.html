@@ -9,14 +9,17 @@
     <div class="centeredText" ng-show="showCheck()"> Congrats on meeting your goal! </div>
     <div class="spacer"></div>
   </div>
+  <div class="currentProgress" ng-show="!showCheck()"> Your current goal: {{ total }} / 1320 calories</div>
+  <div class="spacerLarge" ng-show="showCheck()"></div>
   <div class="activityGreet"> Activities: </div>
   <div class="spacer"></div>
   <div class="activity" ng-repeat='act in activities'>
+  <img src="../assets/{{act.img}}.png" class="actImg" >
     <div class="name"> {{ act.act }} </div>
     <form ng-submit="update([act.act, quantity[act.act]])">
       {{ act.quant }}: <input class="log" name="hours" ng-model="quantity[act.act]">
     </form>
     <input type="submit" id="exSubmit">
-    <div class="goal" ng-show="!showCheck()"> {{ Math.floor((1320 -  total) / act.burn) }} more to meet goal! </div>
+    <div class="goal" ng-show="!showCheck()"> {{ Math.ceil((1320 -  total) / act.burn) }} more to meet goal! </div>
   </div>
 </div>
