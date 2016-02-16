@@ -2,6 +2,11 @@ angular.module('fitness.stats', [])
 
 .controller('StatsController', function ($scope, $window, $location) {
   $scope.user = {};
+  $scope.activities = [{act:'Jogging', quant:'Mins'}, {act:'Running', quant:'Mins'},  {act:'Pushups', quant:'Quantity'},  {act:'Sit-ups', quant:'Quantity'},  {act:'Squats', quant:'Quantity'}];
+
+  $scope.update = function() {
+    console.log($scope.quantity);
+  }
 
   selection = d3.select("body").selectAll("#progressBar");
   selection.html('2000')
