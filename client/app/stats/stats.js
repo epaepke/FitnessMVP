@@ -1,11 +1,15 @@
 angular.module('fitness.stats', [])
 
-.controller('StatsController', function ($scope, $window, $location) {
+.controller('StatsController', function ($scope, $window, $location, $http) {
   $scope.user = {};
   $scope.activities = [{act:'Jogging', quant:'Mins'}, {act:'Running', quant:'Mins'},  {act:'Pushups', quant:'Quantity'},  {act:'Sit-ups', quant:'Quantity'},  {act:'Squats', quant:'Quantity'}];
   $scope.quantity = {};
-  $scope.update = function(t) {
-    console.log(t);
+  $scope.update = function(actData) {
+    $http({
+      method: 'POST',
+      url: '/api/users/update',
+      data: actData
+    })
   }
 
   selection = d3.select("body").selectAll("#progressBar");
