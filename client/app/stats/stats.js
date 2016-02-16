@@ -13,13 +13,12 @@ angular.module('fitness.stats', [])
       method: 'POST',
       url: '/api/users/update',
       data: actData
-    }).then(function (a) {
+    }).then(function () {
       $scope.getInfo();
     });
   };
 
   $scope.getInfo = function() {
-    console.log('bout to get some data');
     $http({
       method: 'GET',
       url: '/api/users/obtain',
@@ -29,14 +28,16 @@ angular.module('fitness.stats', [])
       $scope.quantity['Jogging'] = parseInt(user['jogging']);
       $scope.quantity['Walking'] = parseInt(user['walking']);
       $scope.quantity['Situps'] = parseInt(user['situps']);
-      $scope.total = parseInt(user['jogging']) + parseInt(user['walking']) + parseInt(user['situps']);
-      $scope.barUpdate();
+      $scope.quantity['Pushups'] = parseInt(user['pushups']);
+      $scope.quantity['Squats'] = parseInt(user['squats']);
+      $scope.total = parseInt(user['jogging'])*10 + parseInt(user['walking'])*3 + parseInt(user['situps'])*4;
+      $scope.barUpdate(Math.min($scope.total/4, 633));
     });
   };
 
 
-  $scope.barUpdate = function() {
-    var width = $scope.total + 'px';
+  $scope.barUpdate = function(width) {
+    console.log('tottt', $scope.total);
     selection = d3.select("body").selectAll("#progressBar");
     selection.html($scope.total)
     .style('color', 'white')
@@ -44,8 +45,8 @@ angular.module('fitness.stats', [])
     .style('vertical-align', 'text-bottom')
     .style('background-color', 'green')
     .transition()
-    .duration(1500)
-    .style('width', width)
+    .duration(2500)
+    .style('width', width + 'px')
   }
   $scope.getInfo();
   $scope.barUpdate();

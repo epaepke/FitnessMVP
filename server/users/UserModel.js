@@ -26,6 +26,14 @@ var User = new mongoose.Schema({
   situps: {
     type: Number,
     default: 0
+  },
+  pushups: {
+    type: Number,
+    default: 0
+  },
+  squats: {
+    type: Number,
+    default: 0
   }
 });
 
