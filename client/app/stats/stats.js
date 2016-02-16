@@ -6,11 +6,7 @@ angular.module('fitness.stats', ['fitness.auth', 'ngCookies'])
   $scope.activities = [{act:'Jogging', quant:'Mins', burn:30, img:"run", color:'white'}, {act:'Walking', quant:'Mins', burn:8, img:"walk", color:'white'},  {act:'Pushups', quant:'Quantity', burn:5, img:"gym", color:'white'},  {act:'Situps', quant:'Quantity', burn:5, img:"gym", color:'white'},  {act:'Squats', quant:'Quantity', burn:6, img: "gym", color:'white'}];
   $scope.quantity = {};
   $scope.setCheck = false;
-  // $scope.user = $rootScope.user;
   $scope.user = $cookies.getObject('user');
-
-  // $scope.user = $cookies.get('user').data;
-  // console.log('scope user', $scope.user)
 
  $scope.showCheck = function(actData) {
     var show = $scope.total >= 1320;

@@ -3,17 +3,6 @@ angular.module('fitness.auth', ['ngCookies'])
 .controller('AuthController', function ($scope, $window, $location, $http, $rootScope, $cookies) {
   $scope.user = {};
 
-  // $scope.signin = function () {
-  //   Auth.signin($scope.user)
-  //     .then(function (token) {
-  //       $window.localStorage.setItem('com.shortly', token);
-  //       $location.path('/links');
-  //     })
-  //     .catch(function (error) {
-  //       console.error(error);
-  //     });
-  // };
-
   $scope.signup = function () {
     $http({
       method: 'POST',
@@ -22,9 +11,8 @@ angular.module('fitness.auth', ['ngCookies'])
     }).then(function(err) {
       console.log(err);
     })
-    // $rootScope.user = $scope.user;
+    $cookies.remove('user');
     $cookies.putObject('user', $scope.user);
-    // console.log('a')
     $location.path('/stats');
   };
 
@@ -36,11 +24,12 @@ angular.module('fitness.auth', ['ngCookies'])
       method: 'POST',
       url: '/api/users/signin',
       data: $scope.userSign,
-    }).then(function(err, tt) {
-      console.log('a');
-      console.log('is this an error? ', err);
+    }).then(function(user) {
+      console.log('userData ' , user.data.name);
+      $scope.userSign.name = user.data.name;
     })
-    $cookies.putObject('user', $scope.user);
+    $cookies.remove('user');
+    $cookies.putObject('user', $scope.userSign);
     $location.path('/stats');
   };
 })
