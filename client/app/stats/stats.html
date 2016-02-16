@@ -16,10 +16,12 @@
   <div class="activity" ng-repeat='act in activities'>
   <img src="../assets/{{act.img}}.png" class="actImg" >
     <div class="name"> {{ act.act }} </div>
-    <form ng-submit="update([act.act, quantity[act.act]])">
-      {{ act.quant }}: <input class="log" name="hours" ng-model="quantity[act.act]">
-    </form>
-    <input type="submit" id="exSubmit">
+    <div class="inputContainer">
+      <form ng-submit="update([act.act, quantity[act.act]])">
+        <label>{{ act.quant }}:</label> <input class="log" name="hours" ng-model="quantity[act.act]">
+      </form>
+    </div>
+    <!-- <input type="submit" id="exSubmit"> -->
     <div class="goal" ng-show="!showCheck()"> {{ Math.ceil((1320 -  total) / act.burn) }} more to meet goal! </div>
   </div>
 </div>

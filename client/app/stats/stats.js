@@ -3,7 +3,7 @@ angular.module('fitness.stats', ['fitness.auth'])
 .controller('StatsController', function ($scope, $window, $location, $http) {
   $scope.Math=Math;
   $scope.total = 0;
-  $scope.activities = [{act:'Jogging', quant:'Mins', burn:30, img:"run"}, {act:'Walking', quant:'Mins', burn:8, img:"walk"},  {act:'Pushups', quant:'Quantity', burn:5, img:"gym"},  {act:'Situps', quant:'Quantity', burn:5, img:"gym"},  {act:'Squats', quant:'Quantity', burn:6, img: "gym"}];
+  $scope.activities = [{act:'Jogging', quant:'Mins', burn:30, img:"run", color:'white'}, {act:'Walking', quant:'Mins', burn:8, img:"walk", color:'white'},  {act:'Pushups', quant:'Quantity', burn:5, img:"gym", color:'white'},  {act:'Situps', quant:'Quantity', burn:5, img:"gym", color:'white'},  {act:'Squats', quant:'Quantity', burn:6, img: "gym", color:'white'}];
   $scope.quantity = {};
   $scope.setCheck = false;
 
