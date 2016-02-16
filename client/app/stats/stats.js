@@ -11,6 +11,6 @@ angular.module('fitness.stats', [])
   .style('width', '0px')
   .style('background-color', 'green')
   .transition()
-  .duration(1000)
+  .duration(2000)
   .style('width', '100px')
 });

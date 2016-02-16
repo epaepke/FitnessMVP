@@ -224,12 +224,29 @@ input[type=url]:focus {
   height: 20px;
 }
 
+.activity {
+  border: solid 1px black;
+  width: 200px;
+  height: 100px;
+}
+
+.log {
+  width: 60%;
+}
+
+
+#exSubmit {
+  display:inline;
+  width: 30%;
+}
+
 #progessBarOuter {
   background-color: #236B8E;
   border: solid 1px black;
   width: 50%;
+  top: 30px;
   margin: auto;
-  height: 50px;
+  height: 40px;
 }
 
 #progressBar {
@@ -238,4 +255,5 @@ input[type=url]:focus {
   border-right: solid 1px black;
     display: inline-block;
   vertical-align: middle;
+  top: 10px;
 }
