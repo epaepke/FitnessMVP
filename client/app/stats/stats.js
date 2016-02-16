@@ -3,8 +3,8 @@ angular.module('fitness.stats', [])
 .controller('StatsController', function ($scope, $window, $location) {
   $scope.user = {};
   $scope.activities = [{act:'Jogging', quant:'Mins'}, {act:'Running', quant:'Mins'},  {act:'Pushups', quant:'Quantity'},  {act:'Sit-ups', quant:'Quantity'},  {act:'Squats', quant:'Quantity'}];
-
-  $scope.update = function() {
+  $scope.quantity = {};
+  $scope.update = function(t) {
     console.log($scope.quantity);
   }
 
