@@ -5,11 +5,11 @@ angular.module('fitness.stats', [])
   $scope.activities = [{act:'Jogging', quant:'Mins'}, {act:'Running', quant:'Mins'},  {act:'Pushups', quant:'Quantity'},  {act:'Sit-ups', quant:'Quantity'},  {act:'Squats', quant:'Quantity'}];
   $scope.quantity = {};
   $scope.update = function(t) {
-    console.log($scope.quantity);
+    console.log(t);
   }
 
   selection = d3.select("body").selectAll("#progressBar");
-  selection.html('2000')
+  selection.html('5400')
   .style('color', 'white')
   .style('text-align', 'right')
   .style('vertical-align', 'text-bottom')
@@ -17,5 +17,5 @@ angular.module('fitness.stats', [])
   .style('background-color', 'green')
   .transition()
   .duration(2000)
-  .style('width', '100px')
+  .style('width', '45%')
 });

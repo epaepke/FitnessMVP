@@ -10,7 +10,7 @@
   </div>
   <div class="activity" ng-repeat='act in activities'>
     <div class="name"> {{ act.act }} </div>
-    <form ng-submit="update()">
+    <form ng-submit="update([act.act, quantity[act.act]])">
       {{ act.quant }}: <input class="log" name="hours" ng-model="quantity[act.act]">
       <input type="submit" id="exSubmit">
     </form>

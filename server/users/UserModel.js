@@ -14,6 +14,18 @@ var User = new mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  walking: {
+    type: Number,
+    default: 0
+  },
+  jogging: {
+    type: Number,
+    default: 0
+  },
+  situps: {
+    type: Number,
+    default: 0
   }
 });
 
