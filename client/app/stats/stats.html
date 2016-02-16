@@ -13,7 +13,7 @@
   <div class="spacerLarge" ng-show="showCheck()"></div>
   <div class="activityGreet"> Activities: </div>
   <div class="spacer"></div>
-  <div class="activity" ng-repeat='act in activities'>
+  <div class="activity" ng-repeat='act in activities' ng-class=="{'activated': true}">
   <img src="../assets/{{act.img}}.png" class="actImg" >
     <div class="name"> {{ act.act }} </div>
     <div class="inputContainer">
