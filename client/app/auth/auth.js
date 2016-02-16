@@ -19,8 +19,12 @@ angular.module('fitness.auth', [])
     $http({
       method: 'POST',
       url: '/api/users/signup',
-      data: $scope.user
+      data: $scope.user,
+    }).then(function(err) {
+      console.log(err);
     })
+    $rootScope.user = $scope.user;
+    console.log('a')
     $location.path('/stats');
   };
 })

@@ -1,20 +1,20 @@
 angular.module('fitness.stats', ['fitness.auth'])
 
-.controller('StatsController', function ($scope, $window, $location, $http) {
+.controller('StatsController', function ($scope, $window, $location, $http, $rootScope) {
   $scope.Math=Math;
   $scope.total = 0;
   $scope.activities = [{act:'Jogging', quant:'Mins', burn:30, img:"run", color:'white'}, {act:'Walking', quant:'Mins', burn:8, img:"walk", color:'white'},  {act:'Pushups', quant:'Quantity', burn:5, img:"gym", color:'white'},  {act:'Situps', quant:'Quantity', burn:5, img:"gym", color:'white'},  {act:'Squats', quant:'Quantity', burn:6, img: "gym", color:'white'}];
   $scope.quantity = {};
   $scope.setCheck = false;
+  $scope.user = $rootScope.user;
+  console.log('scope user', $scope.user)
 
  $scope.showCheck = function(actData) {
     var show = $scope.total >= 1320;
-
     if (show && !$scope.setCheck) {
       $scope.setCheck = true;
       $("<img src='../../assets/check.png'><img>").hide().appendTo('#banner').fadeIn(1500);
     }
-
     return show;
   };
 
@@ -32,6 +32,7 @@ angular.module('fitness.stats', ['fitness.auth'])
     $http({
       method: 'GET',
       url: '/api/users/obtain',
+      data: {query: 'erick'},
       contentType: 'application/json'
     }).then(function(user) {
       user = user.data

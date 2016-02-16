@@ -15,7 +15,7 @@ app.use(session({
 }));
 
 app.get('/api/users/obtain', function(req, res, next) {
-
+  console.log('req ', req);
   return db.findUser(req.body, function(a) {
     res.send(a);
   });
@@ -23,12 +23,14 @@ app.get('/api/users/obtain', function(req, res, next) {
 
 
 app.post('/api/users/signup', function(req, res, next) {
+  console.log('signup!');
   name = req.body.name;
   uname = req.body.username;
   pword = req.body.password;
 
   db.createUser({name: name, uname: uname, pword:pword})
     .then(function(newUser) {
+      console.log('create user');
       req.session.regenerate(function() {
         req.session.id = newUser._id;
       });
