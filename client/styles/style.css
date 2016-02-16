@@ -225,8 +225,11 @@ input[type=url]:focus {
 }
 
 .activity {
+  display: inline-block;
+  margin-left: 1%;
+  margin-right: 1%;
   border: solid 1px black;
-  width: 200px;
+  width: 15%;
   height: 100px;
 }
 
