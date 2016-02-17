@@ -262,6 +262,13 @@ input[type=url]:focus {
   width: 30%;
 }
 
+.logout {
+  font-size: 18pt;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+}
+
 .centeredText {
   width: 40%;
   margin: auto;

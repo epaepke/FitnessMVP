@@ -50,6 +50,10 @@ app.post('/api/users/update', function(req, res, next) {
   db.updateTable(req.body).then(res.send(""));
 });
 
+app.get('/logout', function(req, res, next) {
+  res.redirect('/#/signin')
+})
+
 
 app.use(express.static(__dirname + '/../client'));
 
