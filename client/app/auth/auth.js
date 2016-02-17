@@ -13,7 +13,7 @@ angular.module('fitness.auth', ['ngCookies'])
     })
     $cookies.remove('user');
     $cookies.putObject('user', $scope.user);
-    $location.path('/stats');
+    $location.path('/settings');
   };
 
 
@@ -27,9 +27,9 @@ angular.module('fitness.auth', ['ngCookies'])
     }).then(function(user) {
       console.log('userData ' , user.data.name);
       $scope.userSign.name = user.data.name;
+      $cookies.remove('user');
+      $cookies.putObject('user', $scope.userSign);
+      $location.path('/stats');
     })
-    $cookies.remove('user');
-    $cookies.putObject('user', $scope.userSign);
-    $location.path('/stats');
   };
 })

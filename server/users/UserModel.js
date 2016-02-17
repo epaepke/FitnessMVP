@@ -32,7 +32,7 @@ var User = new mongoose.Schema({
     type: Number,
     default: 0
   },
-  squats: {
+  jumprope: {
     type: Number,
     default: 0
   }

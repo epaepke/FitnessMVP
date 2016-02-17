@@ -233,7 +233,7 @@ input[type=url]:focus {
   border: solid 1px black;
   width: 17%;
   height: 260px;
-  border-radius: 40px;
+  border-radius: 60px;
 }
 
 .goal {
@@ -262,11 +262,19 @@ input[type=url]:focus {
   width: 30%;
 }
 
-.logout {
-  font-size: 18pt;
+.navContainer {
   position: absolute;
   top: 50px;
   right: 20px;
+}
+}
+
+
+.settings {
+  font-size: 18pt;
+/*  position: absolute;
+  top: 80px;
+  right: 20px;*/
 }
 
 .centeredText {
@@ -322,6 +330,10 @@ input[type=url]:focus {
   top: 5px;
   left: 43px;
   right: 0;
+}
+
+.calories {
+  width: 20%;
 }
 
 label {

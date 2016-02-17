@@ -2,6 +2,7 @@ console.log('loaded app');
 
 angular.module('fitness', ['fitness.auth', 
   'fitness.stats',
+  'fitness.settings',
   'ngRoute',
   'ngCookies'
 ])
@@ -23,6 +24,10 @@ angular.module('fitness', ['fitness.auth',
     .when('/stats', {
       templateUrl: 'app/stats/stats.html',
       controller: 'StatsController'
+    })
+    .when('/settings', {
+      templateUrl: 'app/settings/settings.html',
+      controller: 'SettingsController'
     })
     .otherwise({
       redirectTo: '/signin'
