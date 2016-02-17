@@ -41,8 +41,8 @@ angular.module('fitness.stats', ['fitness.auth', 'ngCookies'])
       $scope.quantity['Situps'] = parseInt(user['situps']);
       $scope.quantity['Pushups'] = parseInt(user['pushups']);
       $scope.quantity['JumpRope'] = parseInt(user['jumprope']);
-      $scope.total = parseInt(user['jogging']) * 30 + parseInt(user['walking']) * 8 + parseInt(user['situps']) * 5 + parseInt(user['jumprope']) * 5 + parseInt(user['pushups']) * 6;
-      $scope.barUpdate(Math.min($scope.total / 2, 640));
+      $scope.total = parseInt(user['jogging']) * 30 + parseInt(user['walking']) * 8 + parseInt(user['situps']) * 5 + parseInt(user['jumprope']) * 50 + parseInt(user['pushups']) * 5;
+      $scope.barUpdate(Math.min($scope.total / $scope.cals * 640, 640));
     });
   };
 
